@@ -18,8 +18,9 @@ class User < ActiveRecord::Base
   end
 
   def self.online
+    user = Struct.new :id, :name
     redis.keys.map do |key|
-      { id: key, name: redis.get(key) }
+      user.new key, redis.get(key)
     end
   end
 

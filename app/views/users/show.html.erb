@@ -1,2 +1,6 @@
 <h1>Hello <%= current_user.email %></h1>
+<div>Users online</div>
+<% @users.each do |user| %>
+  <div><%= user.name %></div>
+<% end %>
 <%= link_to 'Log out', logout_users_path, method: :delete %>
