@@ -11,6 +11,6 @@ window.OnlineChat =
   Views: {}
 
 $ ->
-  $('h1').on 'click', ->
+  $('.online_user').on 'click', ->
     @new_chatroom = new OnlineChat.Views.Chatrooms.NewView
     @new_chatroom.render()

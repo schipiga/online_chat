@@ -6,4 +6,4 @@ class OnlineChat.Views.Chatrooms.NewView extends Backbone.View
   el: '#chatrooms_container'
 
   render: ->
-    this.$el.append '<div>Soon...</div>'
+    this.$el.append @template
