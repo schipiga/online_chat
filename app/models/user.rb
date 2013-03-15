@@ -31,11 +31,11 @@ class User < ActiveRecord::Base
   protected
 
   def valid_password? password
-    encrypted_password == Digest::MD5.hexdigest password
+    encrypted_password == Digest::MD5.hexdigest(password)
   end
 
   def encrypt_password
-    encrypted_password = Digest::MD5.hexdigest password
+    encrypted_password = Digest::MD5.hexdigest(password)
   end
 
   def self.redis

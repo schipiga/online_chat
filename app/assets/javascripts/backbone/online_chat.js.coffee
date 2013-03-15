@@ -9,3 +9,8 @@ window.OnlineChat =
   Collections: {}
   Routers: {}
   Views: {}
+
+$ ->
+  $('h1').on 'click', ->
+    @new_chatroom = new OnlineChat.Views.Chatrooms.NewView
+    @new_chatroom.render()
