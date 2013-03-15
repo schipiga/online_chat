@@ -20,6 +20,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :test, :development do
+  gem 'debugger'
+end
+
 gem 'jquery-rails'
 
 gem 'redis'

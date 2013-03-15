@@ -11,11 +11,10 @@ class User < ActiveRecord::Base
 
   def self.login params
     user = find_by_email params[:email]
-    if user
-      if user.valid_password? params[:password]
+    if user && user.valid_password?(params[:password])
         redis.set user.id, user.email unless redis.exists user.id
-      end
     end
+    return user
   end
 
   def self.online
@@ -28,14 +27,14 @@ class User < ActiveRecord::Base
     redis.del id
   end
 
-  protected
-
   def valid_password? password
     encrypted_password == Digest::MD5.hexdigest(password)
   end
 
+  protected
+
   def encrypt_password
-    encrypted_password = Digest::MD5.hexdigest(password)
+    self.encrypted_password = Digest::MD5.hexdigest(password)
   end
 
   def self.redis

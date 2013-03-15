@@ -1,2 +1,7 @@
-<h1>Hello world</h1>
-<div id="chatrooms_container"></div>
+<%= form_tag login_users_path do %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+  <%= label_tag :password %>
+  <%= text_field_tag :password %>
+  <%= submit_tag 'Log in' %>
+<% end %>
